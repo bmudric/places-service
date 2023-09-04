@@ -18,7 +18,7 @@ class PlacesRepositoryTest {
 
     @Test
     public void getAllPlaces_should_return_all() {
-        var places = placesRepository.getAllPlaces();
+        var places = placesRepository.getAllPlaces().places();
         assertEquals(2, places.size());
         var labels = places.stream().map(Place::label).toList();
         assertThat(labels, hasItems("Casa Ferlin", "Le Café du Marché"));

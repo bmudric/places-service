@@ -11,7 +11,6 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.ConcurrentMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -35,8 +34,8 @@ public class PlacesRepository {
         log.info("Loaded dummy DB: " + placesDB);
     }
 
-    public List<Place> getAllPlaces() {
-        return placesDB.values().stream().toList();
+    public Places getAllPlaces() {
+        return new Places(placesDB.values().stream().toList());
     }
 
     public Place getPlaceById(String id) {
